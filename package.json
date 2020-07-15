@@ -1,0 +1,44 @@
+{
+  "name": "secretdj",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "watch": "webpack --watch --mode development",
+    "build": "webpack --mode production",
+    "lint": "eslint ./src ./frontend/ts --ext .ts",
+    "fix": "yarn lint --fix",
+    "start": "ts-node ./src/App.ts"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.0",
+    "@types/node": "^14.0.6",
+    "@typescript-eslint/eslint-plugin": "^3.0.2",
+    "@typescript-eslint/eslint-plugin-tslint": "^3.0.2",
+    "@typescript-eslint/parser": "^3.0.2",
+    "add": "^2.0.6",
+    "css-loader": "^3.6.0",
+    "eslint": "^7.1.0",
+    "handlebars": "^4.7.6",
+    "handlebars-loader": "^1.7.1",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^8.0.0",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "typescript": "^3.9.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "yarn": "^1.22.4"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "jquery": "^3.5.1",
+    "mongodb": "^3.5.9",
+    "nodemailer": "^6.4.10",
+    "restify": "^8.5.1"
+  }
+}

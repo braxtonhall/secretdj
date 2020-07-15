@@ -1,0 +1,73 @@
+{{#eq registrationOpen true}}
+	<div id="registration-landing">
+		<div id="sign-up-text">
+			<h4 id="sign-up">Sign Up</h4>
+			<h3 id="secret">SECRET</h3>
+			<h3 id="dj">DJ</h3>
+		</div>
+		<form>
+			<div id="new-user-entries">
+				<div id="personal-info">
+					<div class="form-group">
+						<label for="name-input">Name</label>
+						<input type="text" class="form-control" id="name-input" aria-describedby="name-help" placeholder="Enter name">
+						<small id="name-help" class="form-text text-muted">This can be changed at a later time.</small>
+					</div>
+
+					<div class="form-group">
+						<label for="email-input">Email address</label>
+						<input type="email" class="form-control" id="email-input" aria-describedby="email-help" placeholder="Enter email">
+						<small id="email-help" class="form-text text-muted">This will only be seen by Braxton.</small>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="rule1-input">Rule 1</label>
+					<input type="text" class="form-control" id="rule1-input" aria-describedby="rule1-help" placeholder="Enter a rule">
+					<small id="rule1-help" class="form-text text-muted">Fill this out.</small>
+				</div>
+
+				<div class="form-group">
+					<label for="rule2-input">Rule 2</label>
+					<input type="text" class="form-control" id="rule2-input" aria-describedby="rule2-help" placeholder="Enter another rule">
+					<small id="rule2-help" class="form-text text-muted">Fill this out.</small>
+				</div>
+			</div>
+
+			<div id="button-centerer">
+				<button id="submit-new-user" type="submit" class="btn btn-primary">
+					<span id="submit-spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none"></span>
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+{{else}}
+	<h3 id="closed-reg-sdj">SECRET DJ</h3>
+{{/eq}}
+
+<div id="submit-success" class="alert alert-success" style="display: none;" role="alert">
+    Success! Check your email for a confirmation link to be added to Secret DJ.
+</div>
+
+<div id="submit-error" class="alert alert-danger" style="display: none;" role="alert">
+    Error! Ensure you have filled out all the fields correctly, and ask Braxton if the error persists.
+</div>
+
+<div id="table-center">
+	<table class="table">
+		<thead>
+		<th>Name</th>
+		<th>Rule 1</th>
+		<th>Rule 2</th>
+		{{#eq registrationOpen false}}
+			<th>Playlist</th>
+		{{/eq}}
+		</thead>
+		<tbody id="participant-table-body"></tbody>
+	</table>
+</div>
+
+{{#eq registrationOpen false}}
+	<p id="closed-reg-info">Signup is no longer open. If you already signed up, please go to your email for the link to your dashboard.</p>
+{{/eq}}

@@ -1,0 +1,31 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"downlevelIteration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": false,
+		"jsx": "react",
+		"module": "es6",
+		"moduleResolution": "node",
+		"noImplicitAny": false,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": false,
+		"target": "es5",
+		"lib": [
+			"dom",
+			"es5",
+			"scripthost",
+			"es2015.promise",
+			"es2018"
+		],
+		"types": [
+			"node"
+		]
+	},
+	"include": [
+		"ts"
+	]
+}

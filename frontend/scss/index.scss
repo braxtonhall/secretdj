@@ -1,0 +1,135 @@
+body {
+  background-color: #e0cfe6;
+}
+
+#table-center {
+  text-align: center;
+  padding: 5% 2% 1%;
+  table {
+    text-align: left;
+    .playlist-cell {
+      width: 250px;
+    }
+  }
+}
+
+#registration-landing {
+  display: grid;
+  grid-template-columns: 25% 75%;
+
+  #sign-up-text {
+    padding: 5% 0 1%;
+    font-family: Tahoma, Geneva, sans-serif;
+    z-index: -1;
+
+    #secret {
+      position: absolute;
+      font-size: 700%;
+      color: aliceblue;
+    }
+    #dj {
+      position: absolute;
+      font-size: 2100%;
+      margin-top: 2%;
+      margin-left: 3%;
+      color: aliceblue;
+    }
+    #sign-up {
+      position: absolute;
+      z-index: 1;
+      margin-top: 14%;
+      font-size: 500%;
+    }
+    #more-info {
+      position: absolute;
+      z-index: 1;
+      margin-top: 20%;
+      margin-left: 5%;
+      font-size: 300%;
+    }
+    #more-info-small {
+      position: absolute;
+      z-index: 1;
+      margin-top: 20%;
+      margin-left: 2%;
+      font-size: 200%;
+    }
+  }
+}
+
+form {
+  padding: 2% 5% 1%;
+  width: 100%;
+
+  #button-centerer {
+    text-align: center;
+  }
+
+  #new-user-entries {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    justify-items: center;
+
+    #personal-info {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+      justify-items: center;
+    }
+
+    .form-group {
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+#go-to-signup {
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 30%;
+}
+
+#closed-reg-sdj {
+  font-family: Tahoma, Geneva, sans-serif;
+  z-index: -1;
+  color: aliceblue;
+  font-size: 700%;
+  position: absolute;
+}
+
+#closed-reg-info {
+  font-family: Tahoma, Geneva, sans-serif;
+  color: aliceblue;
+  margin-left: 1%;
+}
+
+#recipient-instructions {
+  margin-top: 5%;
+  text-align: right;
+  padding: 2% 5% 1%;
+
+  #gap-filler {
+    height: 5em;
+    width: 10%;
+  }
+
+  form {
+    padding: 0 0 0;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+#submit-playlist-container {
+  #submit-playlist {
+    float: left;
+    height: 3em;
+  }
+  .alert {
+    width: 80%;
+    float: right;
+  }
+}
