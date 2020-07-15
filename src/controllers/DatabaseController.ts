@@ -41,15 +41,15 @@ export class DatabaseController implements IDatabaseController {
 
 	public getUser(id: string): Promise<User> {
 		return this.get<User>(DatabaseController.USER_COLUMN, {id});
-    }
+	}
 
-    public listUsers(): Promise<User[]> {
-        return this.scan<User>(DatabaseController.USER_COLUMN);
-    }
+	public listUsers(): Promise<User[]> {
+		return this.scan<User>(DatabaseController.USER_COLUMN);
+	}
 
-    public writeUser(user: User): Promise<User> {
+	public writeUser(user: User): Promise<User> {
 		return this.write<User>(DatabaseController.USER_COLUMN, user);
-    }
+	}
 
 	public async closeRegistration(): Promise<void> {
 		await this.write(DatabaseController.REGISTRATION_COLUMN, {id: "reg", open: false});
