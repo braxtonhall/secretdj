@@ -32,14 +32,12 @@ async function renderDashboard(user: UserTransport) {
 	if (!registrationOpen) {
 		const recipientResponse = await Adapter.getRecipient(getID());
 		recipient = recipientResponse.data;
-		recipient.playlist = recipient.playlist.replace("open.spotify.com", "open.spotify.com/embed");
 	}
 
 	const context = {
 		registrationOpen,
 		recipient,
 		...user,
-		playlist: user.playlist.replace("open.spotify.com", "open.spotify.com/embed"),
 	};
 	const renderedDashboard = DashboardTemplate(context);
 	const $root = $('#root');
@@ -186,8 +184,14 @@ function getPlaylistHtml(playlist: string): string {
 			<td class="playlist-cell">
 				<iframe
 					src="${playlist.replace("open.spotify.com", "open.spotify.com/embed")}"
-					width="250" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"
-				></iframe>
+					width="250" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+			</td>
+		`;
+	} else if (playlist.includes("youtube.com/playlist")) {
+		return `
+			<td class="playlist-cell">
+				<iframe src="${playlist.replace("youtube.com/playlist", "youtube.com/embed/videoseries")}"
+				width="250" height="80" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 			</td>
 		`;
 	} else {

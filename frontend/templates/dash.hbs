@@ -96,25 +96,19 @@
 			{{/eq}}
 		</div>
 	</div>
-<!--    {{#noteq playlist ""}}-->
-<!--        <h5>Your playlist is ready!</h5>-->
-<!--        {{#includes playlist "open.spotify.com"}}-->
-<!--            <iframe src="{{playlist}}" width="250" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>-->
-<!--        {{else}}-->
-<!--            <a href="{{playlist}}">Link</a>-->
-<!--        {{/includes}}-->
-<!--    {{/noteq}}-->
 {{/eq}}
 
 <div id="table-center">
 	<table class="table">
 		<thead>
-		<th>Name</th>
-		<th>Rule 1</th>
-		<th>Rule 2</th>
-		{{#eq registrationOpen false}}
-			<th>Playlist</th>
-		{{/eq}}
+			<tr>
+				<th>Name</th>
+				<th>Rule 1</th>
+				<th>Rule 2</th>
+				{{#eq registrationOpen false}}
+					<th>Playlist</th>
+				{{/eq}}
+			</tr>
 		</thead>
 		<tbody id="participant-table-body"></tbody>
 	</table>
