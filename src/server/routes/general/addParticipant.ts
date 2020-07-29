@@ -25,7 +25,7 @@ async function addParticipant(req: Request, res: Response, next: Next): Promise<
 			const recipient = '';
 			const done = false;
 			const user: User = {...toUserTransport(newUser), id, recipient, emailConfirmed, done};
-			await databaseController.writeUser(user);
+			await databaseController.createUser(user);
 			await EmailController.getInstance().sendConfirmationEmail(user);
 			res.json(200, {result: "Success"});
 		} else {

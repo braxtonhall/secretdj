@@ -7,7 +7,8 @@ export interface IDatabaseController {
 
 	getUser(id: string): Promise<User>;
 	listUsers(): Promise<User[]>;
-	writeUser(user: User): Promise<User>;
+	createUser(user: User): Promise<User>;
+	updateUser(user: User): Promise<User>;
 
 	tick(): Promise<number>;
 
@@ -47,12 +48,19 @@ export class DatabaseController implements IDatabaseController {
 		return this.scan<User>(DatabaseController.USER_COLUMN);
 	}
 
-	public writeUser(user: User): Promise<User> {
+	public async createUser(user: User): Promise<User> {
+		if (await this.get(DatabaseController.USER_COLUMN, {id: user.id})) {
+			throw new Error('User with this ID already exists');
+		}
 		return this.write<User>(DatabaseController.USER_COLUMN, user);
 	}
 
+	public updateUser(user: User): Promise<User> {
+		return this.update<User>(DatabaseController.USER_COLUMN, {id: user.id}, user);
+	}
+
 	public async closeRegistration(): Promise<void> {
-		await this.write(DatabaseController.REGISTRATION_COLUMN, {id: "reg", open: false});
+		await this.update(DatabaseController.REGISTRATION_COLUMN, {id: "reg"},{id: "reg", open: false});
 	}
 
 	public async isRegistrationOpen(): Promise<boolean> {
@@ -116,6 +124,13 @@ export class DatabaseController implements IDatabaseController {
 		const collection = await this.getCollection(column);
 		const copy = Object.assign({}, item);
 		await collection.insertOne(copy);
+		return copy;
+	}
+
+	private async update<T>(column: string, query: any, item: T): Promise<T> {
+		const collection = await this.getCollection(column);
+		const copy = Object.assign({}, item);
+		await collection.replaceOne(query, copy);
 		return copy;
 	}
 
@@ -196,7 +211,16 @@ class MockDBC implements IDatabaseController {
 		return Promise.resolve(this.ticker++);
 	}
 
-	public writeUser(user: User): Promise<User> {
+	public createUser(user: User): Promise<User> {
+		if (this.users.has(user.id)) {
+			return Promise.reject(new Error('User with this ID already exits in mock DB'));
+		} else {
+			this.users.set(user.id, user);
+			return Promise.resolve(user);
+		}
+	}
+
+	public updateUser(user: User): Promise<User> {
 		this.users.set(user.id, user);
 		return Promise.resolve(user);
 	}

@@ -22,8 +22,8 @@ async function submitPlaylist(req: Request, res: Response, next: Next): Promise<
 			const recipient = await databaseController.getUser(currentUser.recipient);
 			recipient.playlist = playlist;
 			currentUser.done = true;
-			await databaseController.writeUser(recipient);
-			await databaseController.writeUser(currentUser);
+			await databaseController.updateUser(recipient);
+			await databaseController.updateUser(currentUser);
 			await EmailController.getInstance().sendPlaylistEmail(recipient);
 			res.json(200, {result: "Success"});
 		} else {

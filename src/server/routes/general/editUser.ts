@@ -17,7 +17,7 @@ async function editUser(req: Request, res: Response, next: Next): Promise<void> 
 	const registrationOpen = await databaseController.isRegistrationOpen();
 	if (currentUser && registrationOpen) {
 		if (isValidUserTransport(newUser) && newUser.playlist === '') {
-			await databaseController.writeUser({...currentUser, ...toUserTransport(newUser)});
+			await databaseController.updateUser({...currentUser, ...toUserTransport(newUser)});
 			res.json(200, {result: "Success"});
 		} else {
 			res.json(400, {error: "Bad Request"});

@@ -17,7 +17,7 @@ async function confirmEmail(req: Request, res: Response, next: Next): Promise<vo
 	const registrationOpen = await databaseController.isRegistrationOpen();
 	if (currentUser && registrationOpen) {
 		if (currentUser.emailConfirmed ===  false) {
-			await databaseController.writeUser({...currentUser, emailConfirmed: true});
+			await databaseController.updateUser({...currentUser, emailConfirmed: true});
 		}
 		res.json(200, {result: "Success"});
 	} else {
