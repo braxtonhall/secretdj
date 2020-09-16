@@ -58,7 +58,12 @@ const config = {
 	],
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
-	}
+	},
+	plugins: [
+		new webpack.EnvironmentPlugin({
+			REQUEST_PREFIX: '',
+		})
+	]
 };
 
 module.exports = (env, options) => {

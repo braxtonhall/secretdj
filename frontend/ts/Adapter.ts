@@ -6,11 +6,13 @@ interface IAPIResponse<T = undefined> {
 	data?: T;
 }
 
+const PREFIX = process.env.REQUEST_PREFIX;
+
 export default {
 	// Admin
 	startExchange: async (id: string): Promise<IAPIResponse> => {
 		try {
-			const {status} = await axios.post("/start", {}, {headers: {id, "Content-Type": "application/json"}});
+			const {status} = await axios.post(PREFIX + "/start", {}, {headers: {id, "Content-Type": "application/json"}});
 			return {success: status === 200};
 		} catch {
 			return {success: false};
@@ -18,7 +20,8 @@ export default {
 	},
 	sendReminders: async (id: string): Promise<IAPIResponse<{count: number}>> => {
 		try {
-			const {status, data} = await axios.post("/reminder", {}, {headers: {id, "Content-Type": "application/json"}});
+			const {status, data} = await axios.post(PREFIX + "/reminder",
+				{}, {headers: {id, "Content-Type": "application/json"}});
 			return {success: status === 200, data};
 		} catch {
 			return {success: false};
@@ -27,7 +30,7 @@ export default {
 	// General
 	createUser: async (user: UserTransport): Promise<IAPIResponse> => {
 		try {
-			const {status} = await axios.post("/new", user, {headers: {"Content-Type": "application/json"}});
+			const {status} = await axios.post(PREFIX + "/new", user, {headers: {"Content-Type": "application/json"}});
 			return {success: status === 200};
 		} catch {
 			return {success: false};
@@ -35,7 +38,7 @@ export default {
 	},
 	confirmEmail: async (id: string): Promise<IAPIResponse> => {
 		try {
-			const {status} = await axios.post("/confirm", {}, {headers: {id, "Content-Type": "application/json"}});
+			const {status} = await axios.post(PREFIX + "/confirm", {}, {headers: {id, "Content-Type": "application/json"}});
 			return {success: status === 200};
 		} catch {
 			return {success: false};
@@ -43,7 +46,7 @@ export default {
 	},
 	editUser: async (id: string, user: UserTransport): Promise<IAPIResponse> => {
 		try {
-			const {status} = await axios.post("/edit", user, {headers: {id, "Content-Type": "application/json"}});
+			const {status} = await axios.post(PREFIX + "/edit", user, {headers: {id, "Content-Type": "application/json"}});
 			return {success: status === 200};
 		} catch {
 			return {success: false};
@@ -51,7 +54,8 @@ export default {
 	},
 	submitPlaylist: async (id: string, playlist: string): Promise<IAPIResponse> => {
 		try {
-			const {status} = await axios.post("/playlist", {playlist}, {headers: {id, "Content-Type": "application/json"}});
+			const {status} = await axios.post(PREFIX + "/playlist",
+				{playlist}, {headers: {id, "Content-Type": "application/json"}});
 			return {success: status === 200};
 		} catch {
 			return {success: false};
@@ -59,7 +63,7 @@ export default {
 	},
 	getRecipient: async (id: string): Promise<IAPIResponse<UserTransport>> => {
 		try {
-			const {status, data} = await axios.get("/recipient", {headers: {id, "Content-Type": "application/json"}});
+			const {status, data} = await axios.get(PREFIX + "/recipient", {headers: {id, "Content-Type": "application/json"}});
 			return {success: status === 200, data};
 		} catch {
 			return {success: false};
@@ -67,7 +71,7 @@ export default {
 	},
 	getMyInfo: async (id: string): Promise<IAPIResponse<UserTransport>> => {
 		try {
-			const {status, data} = await axios.get("/user", {headers: {id, "Content-Type": "application/json"}});
+			const {status, data} = await axios.get(PREFIX + "/user", {headers: {id, "Content-Type": "application/json"}});
 			return {success: status === 200, data};
 		} catch {
 			return {success: false};
@@ -75,7 +79,7 @@ export default {
 	},
 	listParticipants: async (): Promise<IAPIResponse<UserTransport[]>> => {
 		try {
-			const {status, data} = await axios.get("/list", {headers: {"Content-Type": "application/json"}});
+			const {status, data} = await axios.get(PREFIX + "/list", {headers: {"Content-Type": "application/json"}});
 			return {success: status === 200, data};
 		} catch {
 			return {success: false};
@@ -83,7 +87,7 @@ export default {
 	},
 	getRegistrationStatus: async (): Promise<IAPIResponse<{open: boolean}>> => {
 		try {
-			const {status, data} = await axios.get("/registration", {headers: {"Content-Type": "application/json"}});
+			const {status, data} = await axios.get(PREFIX + "/registration", {headers: {"Content-Type": "application/json"}});
 			return {success: status === 200, data};
 		} catch {
 			return {success: false};
