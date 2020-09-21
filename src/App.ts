@@ -12,8 +12,8 @@ export class App {
 		const server = new Server(port);
 		server.start().then((val: boolean) => {
 			console.log("App::initServer() - started: ", val, "- Port:", port);
-		// }).then(() => { // TODO
-		// 	return DatabaseController.getInstance().forceInit();
+		}).then(() => {
+			return DatabaseController.getInstance().forceInit();
 		}).catch(function (err: Error) {
 			console.log("App::initServer() - ERROR: " + err.message);
 		});
