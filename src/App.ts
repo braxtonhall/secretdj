@@ -2,7 +2,7 @@ import {config} from "dotenv";
 config();
 
 import Server from "./server/Server";
-// import {DatabaseController} from "./controllers/DatabaseController"; // TODO
+import {DatabaseController} from "./controllers/DatabaseController";
 
 /**
  * Main app class that is run with the node command. Starts the server.
