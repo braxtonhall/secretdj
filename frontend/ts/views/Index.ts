@@ -9,6 +9,8 @@ import DashboardTemplate from "../../templates/dash.hbs";
 import SignupTemplate from "../../templates/signup.hbs";
 import ErrorTemplate from "../../templates/error.hbs";
 
+const localStorageIdKey = 'sdj-id';
+
 async function init() {
 	const id = getID();
 	if (id === '') {
@@ -47,6 +49,7 @@ async function renderDashboard(user: UserTransport) {
 	} else {
 		$('#submit-playlist').on('click', onClickSubmitPlaylist);
 	}
+	$('#logout').on('click', onClickLogout);
 	await renderTable();
 	$root.fadeIn();
 }
@@ -96,6 +99,12 @@ async function onClickSubmitPlaylist(e: Event) {
 	}
 
 	$submitSpinner.hide();
+}
+
+async function onClickLogout(e: Event) {
+	e.preventDefault();
+	localStorage.removeItem(localStorageIdKey);
+	location.search = '';
 }
 
 async function renderError() {
@@ -201,7 +210,16 @@ function getPlaylistHtml(playlist: string): string {
 
 function getID(): string {
 	const params = new URLSearchParams(window.location.search);
-	return params.get('id') || '';
+	const paramId = params.get('id');
+	if (paramId) {
+		localStorage.setItem(localStorageIdKey, paramId);
+		return paramId;
+	}
+	const localId = localStorage.getItem(localStorageIdKey);
+	if (localId) {
+		return localId;
+	}
+	return '';
 }
 
 $(init);
