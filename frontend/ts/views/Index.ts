@@ -18,6 +18,7 @@ async function init() {
 	} else {
 		const response = await Adapter.getMyInfo(id);
 		if (response.success && response.data) {
+			localStorage.setItem(localStorageIdKey, id);
 			await Adapter.confirmEmail(id);
 			return renderDashboard(response.data);
 		} else {
@@ -212,7 +213,6 @@ function getID(): string {
 	const params = new URLSearchParams(window.location.search);
 	const paramId = params.get('id');
 	if (paramId) {
-		localStorage.setItem(localStorageIdKey, paramId);
 		return paramId;
 	}
 	const localId = localStorage.getItem(localStorageIdKey);
