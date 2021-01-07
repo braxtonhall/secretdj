@@ -39,10 +39,6 @@
 					<span id="submit-edit-spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none"></span>
 					Edit
 				</button>
-
-                <button id="logout" type="submit" class="btn btn-primary">
-                    Logout
-                </button>
 			</div>
 		</form>
 	</div>
@@ -102,18 +98,8 @@
 	</div>
 {{/eq}}
 
-<div id="table-center">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Rule 1</th>
-				<th>Rule 2</th>
-				{{#eq registrationOpen false}}
-					<th>Playlist</th>
-				{{/eq}}
-			</tr>
-		</thead>
-		<tbody id="participant-table-body"></tbody>
-	</table>
-</div>
+<div id="table-container"></div>
+
+<button id="logout" type="submit" class="btn btn-primary">
+    Logout
+</button>

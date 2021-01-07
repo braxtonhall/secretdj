@@ -8,7 +8,8 @@
     "build": "webpack --mode production",
     "lint": "eslint ./src ./frontend/ts --ext .ts",
     "fix": "yarn lint --fix",
-    "start": "ts-node ./src/App.ts"
+    "start": "ts-node ./src/App.ts",
+    "fix-email": "ts-node ./scripts/RestartExchange.ts"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.0",

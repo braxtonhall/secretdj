@@ -8,6 +8,7 @@ import "../../scss/index.scss";
 import DashboardTemplate from "../../templates/dash.hbs";
 import SignupTemplate from "../../templates/signup.hbs";
 import ErrorTemplate from "../../templates/error.hbs";
+import TablesTemplate from "../../templates/tables.hbs";
 
 const localStorageIdKey = 'sdj-id';
 
@@ -51,7 +52,8 @@ async function renderDashboard(user: UserTransport) {
 		$('#submit-playlist').on('click', onClickSubmitPlaylist);
 	}
 	$('#logout').on('click', onClickLogout);
-	await renderTable();
+	renderTable(registrationOpen);
+	await fillTable();
 	$root.fadeIn();
 }
 
@@ -78,7 +80,7 @@ async function onClickEditUser(e: Event) {
 	}
 
 	$submitSpinner.hide();
-	return renderTable();
+	return fillTable();
 }
 
 async function onClickSubmitPlaylist(e: Event) {
@@ -123,7 +125,8 @@ async function renderSignup() {
 	const renderedSignup = SignupTemplate(context);
 	const $root = $('#root');
 	$root.hide().html(renderedSignup);
-	await renderTable();
+	renderTable(registrationOpen);
+	await fillTable();
 
 	if (registrationOpen) {
 		$('#submit-new-user').on('click', onClickSubmitNewUser);
@@ -132,7 +135,13 @@ async function renderSignup() {
 	$root.fadeIn();
 }
 
-async function renderTable() {
+function renderTable(registrationOpen: boolean) {
+	const context = {registrationOpen};
+	const renderedTables = TablesTemplate(context);
+	$('#table-container').html(renderedTables);
+}
+
+async function fillTable() {
 	const usersResponse = await Adapter.listParticipants();
 	const users = usersResponse.data;
 
