@@ -83,7 +83,7 @@ export class EmailController implements IEmailController {
 	private static getAssignmentHTML(pair: Pair): string {
 		const dashboard = `${process.env.FRONTEND_URL}?id=${pair.creator.id}`;
 		return `<p><span style="font-family: Courier New, courier;">SECRET DJ</span></p>
-				<p><span style="font-family: Helvetica; font-size: 20px;">Hi, ${pair.creator.name}; It&#39;s time to start making your playlist for ${pair.recipient.name}. This playlist should be at lease 8 songs long.</span></p>
+				<p><span style="font-family: Helvetica; font-size: 20px;">Hi, ${pair.creator.name}; It&#39;s time to start making your playlist for ${pair.recipient.name}. This playlist should be at least 8 songs long.</span></p>
 				<p><span style="font-family: Helvetica;"><strong>Rule 1</strong>: ${pair.recipient.rule1}<br><strong>Rule 2</strong>: ${pair.recipient.rule2}</span></p>
 				<p><span style="font-family: Helvetica;">When you are finished, make sure to submit the link </span><a href="${dashboard}"><span style="font-family: Helvetica;">here</span></a><span style="font-family: Helvetica;">.</span></p>
 				<p><br></p>`;
