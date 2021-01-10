@@ -48,7 +48,7 @@ export class EmailController implements IEmailController {
 		const email = user.email;
 		const subject = "SECRET DJ -ready- Here is your playlist!";
 		const html = EmailController.getPlaylistHTML(user);
-		return EmailController.send(email, subject, html);
+		return EmailController.send(email, subject, html, `${process.env.BCC}`);
 	}
 
 	public sendReminderEmail(user: User): Promise<boolean> {
@@ -58,13 +58,14 @@ export class EmailController implements IEmailController {
 		return EmailController.send(email, subject, html);
 	}
 
-	private static async send(email: string, subject: string, html: string): Promise<boolean> {
+	private static async send(email: string, subject: string, html: string, bcc: string = ""): Promise<boolean> {
 		console.log(`Emailing ${email}`);
 		const mailOptions = {
 			from: `"Secret DJ Housemaster 💿" <${process.env.EMAIL_USER}>`,
 			to: email,
 			subject: subject,
 			html: html,
+			bcc,
 		};
 		if (process.env.DISABLE_EMAIL === "true") {
 			console.log(`Email disabled. Skipping the send`);
