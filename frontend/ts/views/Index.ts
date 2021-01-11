@@ -211,6 +211,7 @@ function getPlaylistHtml(playlist: string): string {
 			<td class="playlist-cell">
 				<iframe src="${playlist.replace("youtube.com/playlist", "youtube.com/embed/videoseries")}"
 				width="250" height="80" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<a href="${playlist}">Link</a>
 			</td>
 		`;
 	} else {
