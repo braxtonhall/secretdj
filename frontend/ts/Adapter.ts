@@ -18,10 +18,10 @@ export default {
 			return {success: false};
 		}
 	},
-	sendReminders: async (id: string): Promise<IAPIResponse<{count: number}>> => {
+	sendReminders: async (id: string, message: string): Promise<IAPIResponse<{count: number}>> => {
 		try {
 			const {status, data} = await axios.post(PREFIX + "/reminder",
-				{}, {headers: {id, "Content-Type": "application/json"}});
+				{message}, {headers: {id, "Content-Type": "application/json"}});
 			return {success: status === 200, data};
 		} catch {
 			return {success: false};

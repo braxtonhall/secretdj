@@ -12,6 +12,8 @@
             Start Game
         </button>
     {{else}}
+        <label for="custom-message-input">Message</label>
+        <input type="text" class="form-control" id="custom-message-input" aria-describedby="custom-message-help" placeholder="Enter a custom message">
         <button id="submit-reminder" type="submit" class="btn btn-primary">
             <span id="submit-reminder-spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none"></span>
             Send Reminders

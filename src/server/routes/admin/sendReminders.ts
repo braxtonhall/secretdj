@@ -6,8 +6,9 @@ import {getUser, isAdmin} from "../../Auth";
 
 async function sendReminders(req: Request, res: Response, next: Next): Promise<void> {
 	const user = getUser(req);
+	const message = req.body?.message ?? "";
 	if (isAdmin(user)) {
-		const reminderCount = await handleSendReminders();
+		const reminderCount = await handleSendReminders(message);
 		if (reminderCount >= 0) {
 			res.json(200, {count: reminderCount});
 		} else {
@@ -19,7 +20,7 @@ async function sendReminders(req: Request, res: Response, next: Next): Promise<v
 	return next();
 }
 
-async function handleSendReminders(): Promise<number> {
+async function handleSendReminders(message: string): Promise<number> {
 	const databaseController: IDatabaseController = DatabaseController.getInstance();
 
 	const registrationOpen: boolean = await databaseController.isRegistrationOpen();
@@ -32,7 +33,7 @@ async function handleSendReminders(): Promise<number> {
 	const unfinishedUsers = users.filter((user) => user.emailConfirmed && !user.done);
 
 	const emailController = EmailController.getInstance();
-	await Promise.all(unfinishedUsers.map((user) => emailController.sendReminderEmail(user)));
+	await Promise.all(unfinishedUsers.map((user) => emailController.sendReminderEmail(user, message)));
 
 	return unfinishedUsers.length;
 }

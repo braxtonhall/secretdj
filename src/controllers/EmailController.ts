@@ -5,7 +5,7 @@ export interface IEmailController {
 	sendAssignmentEmail(pair: Pair): Promise<boolean>;
 	sendConfirmationEmail(user: User): Promise<boolean>;
 	sendPlaylistEmail(user: User): Promise<boolean>;
-	sendReminderEmail(user: User): Promise<boolean>;
+	sendReminderEmail(user: User, message: string): Promise<boolean>;
 }
 
 export class EmailController implements IEmailController {
@@ -51,10 +51,10 @@ export class EmailController implements IEmailController {
 		return EmailController.send(email, subject, html, `${process.env.BCC}`);
 	}
 
-	public sendReminderEmail(user: User): Promise<boolean> {
+	public sendReminderEmail(user: User, message: string): Promise<boolean> {
 		const email = user.email;
 		const subject = "SECRET DJ -reminder- Don't forget the playlist!";
-		const html = EmailController.getReminderHTML(user);
+		const html = EmailController.getReminderHTML(user, message);
 		return EmailController.send(email, subject, html);
 	}
 
@@ -106,11 +106,12 @@ export class EmailController implements IEmailController {
 		<p><br></p>`;
 	}
 
-	private static getReminderHTML(user: User): string {
+	private static getReminderHTML(user: User, message: string): string {
 		const dashboard = `${process.env.FRONTEND_URL}?id=${user.id}`;
 		return `<p><span style="font-family: Courier New, courier;">SECRET DJ</span></p>
 				<p><span style="font-family: Helvetica; font-size: 20px;">Hi, ${user.name}; Just a reminder.</span></p>
 				<p><span style="font-family: Helvetica;">To see your recipient and their rules, and to submit their playlist, visit your dashboard&nbsp;</span><a href="${dashboard}"><span style="font-family: Helvetica;">here</span></a><span style="font-family: Helvetica;">.</span></p>
+				${message ? `<p><span style="font-family: Courier New, courier;">MESSAGE FROM THE ADMIN: </span>${message}</p>` : ""}
 				<p><br></p>`;
 	}
 }

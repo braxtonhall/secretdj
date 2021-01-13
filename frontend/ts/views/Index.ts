@@ -114,7 +114,7 @@ async function renderError() {
 	const context = {};
 	const renderedError = ErrorTemplate(context);
 	$('#root').hide().html(renderedError).fadeIn();
-	$('#go-to-signup').on('click', () => window.location.href = window.location.origin);
+	$('#go-to-signup').on('click', onClickLogout);
 }
 
 async function renderSignup() {

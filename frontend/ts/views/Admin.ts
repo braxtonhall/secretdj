@@ -23,22 +23,27 @@ async function init() {
 
 function onClickStart(e: Event) {
 	e.preventDefault();
-	return adminAction('#submit-start-spinner', 'startExchange');
+	return adminAction('#submit-start-spinner', () => {
+		const id = $('#id-input').val() as string;
+		return Adapter.startExchange(id);
+	});
 }
 
 function onClickReminder(e: Event) {
 	e.preventDefault();
-	return adminAction('#submit-reminder-spinner', 'sendReminders');
+	return adminAction('#submit-reminder-spinner', () => {
+		const id = $('#id-input').val() as string;
+		const message = $('#custom-message-input').val() as string;
+		return Adapter.sendReminders(id, message);
+	});
 }
 
-async function adminAction(spinnerId: string, adapterFunction: string) {
+async function adminAction(spinnerId: string, proc: () => Promise<any>) {
 	const $submitSpinner = $(spinnerId);
 
 	$submitSpinner.show();
 
-	const id = $('#id-input').val() as string;
-	const response = await Adapter[adapterFunction](id);
-
+	const response = await proc();
 	if (response.success) {
 		$('#admin-error').hide();
 		$('#admin-success').show();
