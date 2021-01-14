@@ -42,7 +42,7 @@ async function handleStartExchange(): Promise<boolean> {
 	await Promise.all(assignedUsers.map((pair) => databaseController.updateUser(pair.creator)));
 
 	const emailController = EmailController.getInstance();
-	await Promise.all(assignedUsers.map((pair) => emailController.sendAssignmentEmail(pair)));
+	await emailController.sendAssignmentEmails(assignedUsers);
 
 	return true;
 }

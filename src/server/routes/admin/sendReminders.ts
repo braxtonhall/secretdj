@@ -33,7 +33,7 @@ async function handleSendReminders(message: string): Promise<number> {
 	const unfinishedUsers = users.filter((user) => user.emailConfirmed && !user.done);
 
 	const emailController = EmailController.getInstance();
-	await Promise.all(unfinishedUsers.map((user) => emailController.sendReminderEmail(user, message)));
+	await emailController.sendReminderEmails(unfinishedUsers, message);
 
 	return unfinishedUsers.length;
 }

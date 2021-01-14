@@ -2,14 +2,15 @@ import {Pair, User} from "../Types";
 import * as nodemailer from "nodemailer";
 
 export interface IEmailController {
-	sendAssignmentEmail(pair: Pair): Promise<boolean>;
+	sendAssignmentEmails(pairs: Pair[]): Promise<boolean>;
 	sendConfirmationEmail(user: User): Promise<boolean>;
 	sendPlaylistEmail(user: User): Promise<boolean>;
-	sendReminderEmail(user: User, message: string): Promise<boolean>;
+	sendReminderEmails(users: User[], message: string): Promise<boolean>;
 }
 
 export class EmailController implements IEmailController {
 	private static instance: IEmailController;
+	private static readonly SLEEP_TIME = 1000;
 
 	private static transporter = nodemailer.createTransport({
 		service: 'gmail',
@@ -30,7 +31,21 @@ export class EmailController implements IEmailController {
 		console.info("New Email Controller!");
 	}
 
-	public sendAssignmentEmail(pair: Pair): Promise<boolean> {
+	private sleep(ms: number): Promise<void> {
+		return new Promise<void>((resolve) => {
+			setTimeout(resolve, ms);
+		});
+	}
+
+	public async sendAssignmentEmails(pairs: Pair[]): Promise<boolean> {
+		for (const pair of pairs) {
+			await this.sendAssignmentEmail(pair);
+			await this.sleep(EmailController.SLEEP_TIME);
+		}
+		return true;
+	}
+
+	private sendAssignmentEmail(pair: Pair): Promise<boolean> {
 		const email = pair.creator.email;
 		const subject = "SECRET DJ -begin- Here are your rules!";
 		const html = EmailController.getAssignmentHTML(pair);
@@ -51,7 +66,15 @@ export class EmailController implements IEmailController {
 		return EmailController.send(email, subject, html, `${process.env.BCC}`);
 	}
 
-	public sendReminderEmail(user: User, message: string): Promise<boolean> {
+	public async sendReminderEmails(users: User[], message: string): Promise<boolean> {
+		for (const user of users) {
+			await this.sendReminderEmail(user, message);
+			await this.sleep(EmailController.SLEEP_TIME);
+		}
+		return true;
+	}
+
+	private sendReminderEmail(user: User, message: string): Promise<boolean> {
 		const email = user.email;
 		const subject = "SECRET DJ -reminder- Don't forget the playlist!";
 		const html = EmailController.getReminderHTML(user, message);
@@ -72,11 +95,11 @@ export class EmailController implements IEmailController {
 			return true;
 		}
 		try {
-			console.log("Emailing...Assignment");
-			console.log(await EmailController.transporter.sendMail(mailOptions));
+			const result = await EmailController.transporter.sendMail(mailOptions);
+			console.log("Success", email, result);
 			return true;
 		} catch (err) {
-			console.error(err);
+			console.error("Error", email, err);
 			return false;
 		}
 	}
