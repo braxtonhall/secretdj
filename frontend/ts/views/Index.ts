@@ -204,6 +204,7 @@ function getPlaylistHtml(playlist: string): string {
 				<iframe
 					src="${playlist.replace("open.spotify.com", "open.spotify.com/embed")}"
 					width="250" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+				<a href="${playlist}">Link</a>
 			</td>
 		`;
 	} else if (playlist.includes("youtube.com/playlist")) {
