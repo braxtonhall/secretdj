@@ -39,7 +39,7 @@
     "dotenv": "^8.2.0",
     "jquery": "^3.5.1",
     "mongodb": "^3.5.9",
-    "nodemailer": "^6.4.10",
+    "nodemailer": "^6.4.16",
     "restify": "^8.5.1"
   }
 }
