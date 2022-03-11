@@ -1,4 +1,4 @@
-import {Command} from "@ubccpsc310/bot-base";
+import {Command, Log} from "@ubccpsc310/bot-base";
 import {Client, Message, MessageActionRow, MessageButton} from "discord.js";
 import {getUserDataFromDM} from "../util/getUserDataFromDM";
 import {User} from "../Types";
@@ -40,6 +40,7 @@ const enrol: Command = {
             });
             await syncDJFeed(client, user);
         } catch (err) {
+            Log.error(err);
             return author.send(getErrorMessage(err));
         }
 
