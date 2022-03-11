@@ -1,19 +1,23 @@
+export interface SecretDJTransport {
+    [guild: string]: UserTransport[];
+}
+
 export interface UserTransport {
-	email: string;
-	name: string;
-	rule1: string;
-	rule2: string;
-	playlist: string;
+    name: string;
+    rule1: string;
+    rule2: string;
+    playlist: string;
 }
 
 export interface User extends UserTransport {
-	id: string;
-	recipient: string;
-	emailConfirmed: boolean;
-	done: boolean;
+    id: string;
+    guild: string;
+    recipient: string;
+    done: boolean;
+    feedId?: string;
 }
 
 export interface Pair {
-	creator: User;
-	recipient: User;
+    creator: User;
+    recipient: User;
 }

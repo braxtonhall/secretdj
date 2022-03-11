@@ -1,45 +1,59 @@
 {
-  "name": "secretdj",
+  "name": "bot-starter",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
-  "scripts": {
-    "watch": "webpack --watch --mode development",
-    "build": "webpack --mode production",
-    "lint": "eslint ./src ./frontend/ts --ext .ts",
-    "fix": "yarn lint --fix",
-    "start": "ts-node ./src/App.ts",
-    "fix-email": "ts-node ./scripts/RestartExchange.ts"
+  "engines": {
+    "node": ">= 16 < 17"
+  },
+  "dependencies": {
+    "@ubccpsc310/bot-base": "^1.0.8",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "mongodb": "^4.4.1",
+    "restify": "^8.6.1"
   },
   "devDependencies": {
+    "@tsconfig/node14": "^1.0.1",
+    "@types/dotenv": "^8.2.0",
     "@types/jquery": "^3.5.0",
-    "@types/node": "^14.0.6",
-    "@typescript-eslint/eslint-plugin": "^3.0.2",
-    "@typescript-eslint/eslint-plugin-tslint": "^3.0.2",
-    "@typescript-eslint/parser": "^3.0.2",
-    "add": "^2.0.6",
+    "@types/node": "^16.7.10",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
+    "axios": "^0.26.1",
     "css-loader": "^3.6.0",
     "eslint": "^7.1.0",
     "handlebars": "^4.7.7",
     "handlebars-loader": "^1.7.1",
+    "jquery": "^3.5.1",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
     "style-loader": "^1.2.1",
     "ts-loader": "^8.0.0",
-    "ts-node": "^8.10.2",
-    "tslint": "^6.1.2",
-    "tslint-microsoft-contrib": "^6.2.0",
-    "typescript": "^3.9.6",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "yarn": "^1.22.4"
+    "nodemon": "2.0.12",
+    "ts-node": "10.2.1",
+    "typescript": "4.4.2",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.12"
   },
-  "dependencies": {
-    "axios": "^0.21.1",
-    "dotenv": "^8.2.0",
-    "jquery": "^3.5.1",
-    "mongodb": "^3.5.9",
-    "nodemailer": "^6.4.16",
-    "restify": "^8.5.1"
+  "scripts": {
+    "build": "tsc",
+    "fix": "yarn lint --fix",
+    "lint": "eslint src --ext .ts",
+    "start": "ts-node src/App.ts",
+    "watch": "nodemon",
+    "watch:frontend": "webpack --watch --mode development",
+    "build:frontend": "webpack --mode production"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "yarn start",
+    "ext": ".ts"
   }
 }
