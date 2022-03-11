@@ -10,7 +10,7 @@ const isUserTransport = (user: unknown): user is UserTransport => {
             return false;
         }
     }
-    return user["user1"] && user["rule2"] && user["name"];
+    return user["rule1"] && user["rule2"] && user["name"];
 };
 
 const toUserTransport = (user: User): UserTransport => {
