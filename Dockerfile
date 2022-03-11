@@ -3,6 +3,7 @@ FROM node:16-alpine AS BUILDER
 WORKDIR /tmp
 
 COPY ./src          ./src
+COPY ./frontend     ./frontend
 COPY ./package.json ./package.json
 COPY tsconfig.json  ./
 COPY yarn.lock      ./
@@ -11,7 +12,7 @@ COPY webpack.config.js ./
 
 RUN yarn install
 RUN yarn tsc
-RUN yarn build:frontend
+RUN REQUEST_PREFIX=${REQUEST_PREFIX} yarn build:frontend
 
 FROM node:16-alpine
 
@@ -24,7 +25,5 @@ WORKDIR /app
 COPY --from=BUILDER /tmp/dist ./dist
 COPY --from=BUILDER /tmp/node_modules ./node_modules
 COPY --from=BUILDER /tmp/frontend/js ./frontend/js
-
-RUN REQUEST_PREFIX=${REQUEST_PREFIX} yarn install && yarn build:frontend
 
 CMD ["node", "dist/App.js"]

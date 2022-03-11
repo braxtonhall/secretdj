@@ -19,7 +19,7 @@
 			"es5",
 			"scripthost",
 			"es2015.promise",
-			"es2018"
+			"es2019"
 		],
 		"types": [
 			"node"
