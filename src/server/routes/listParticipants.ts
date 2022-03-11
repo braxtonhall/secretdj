@@ -22,7 +22,7 @@ const listParticipants = (client: Client) => async (req: Request, res: Response,
         secretDJ[user.guild].push(toUserTransport(user));
     }
     for (const [guild, users] of Object.entries(secretDJ)) {
-        const name = client.guilds.resolve(guild).name;
+        const name = client.guilds.resolve(guild)?.name ?? guild;
         prettySecretDJ[name] = users;
     }
     res.json(200, prettySecretDJ);
