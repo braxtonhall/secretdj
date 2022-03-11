@@ -1,5 +1,5 @@
 import {Command, Log} from "@ubccpsc310/bot-base";
-import {Client, Message, MessageActionRow, MessageButton} from "discord.js";
+import {Client, Message} from "discord.js";
 import {getUserDataFromDM} from "../util/getUserDataFromDM";
 import {User} from "../Types";
 import {DatabaseController} from "../controller/DatabaseController";
@@ -7,7 +7,7 @@ import {DatabaseError, TimeoutError} from "../Errors";
 import {createUserDataEmbed, editButtons} from "../util/Util";
 import {syncDJFeed} from "../util/syncDJFeed";
 
-const DELAY = 60 * 1000; // 1 minute
+const DELAY = 3 * 60 * 1000; // 3 minutes
 
 const enrol: Command = {
     name: "enrol",
