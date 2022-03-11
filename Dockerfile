@@ -25,5 +25,6 @@ WORKDIR /app
 COPY --from=BUILDER /tmp/dist ./dist
 COPY --from=BUILDER /tmp/node_modules ./node_modules
 COPY --from=BUILDER /tmp/frontend/js ./frontend/js
+COPY --from=BUILDER /tmp/frontend/html ./frontend/html
 
 CMD ["node", "dist/App.js"]
