@@ -2,6 +2,8 @@ FROM node:16-alpine AS BUILDER
 
 WORKDIR /tmp
 
+ARG REQUEST_PREFIX
+
 COPY ./src          ./src
 COPY ./frontend     ./frontend
 COPY ./package.json ./package.json
@@ -17,8 +19,6 @@ RUN REQUEST_PREFIX=${REQUEST_PREFIX} yarn build:frontend
 FROM node:16-alpine
 
 ENV LOG_LEVEL=INFO
-
-ARG REQUEST_PREFIX
 
 WORKDIR /app
 
