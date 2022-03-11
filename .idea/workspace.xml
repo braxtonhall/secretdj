@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ad547134-08c7-4bf2-9589-8a80946dc9ae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Errors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/echo.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/enrol.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/feed.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/remind.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/start.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/DatabaseController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/listeners/edit.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/listeners/playlist.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/listeners/ready.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/routes/listParticipants.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/routes/registerRoutes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/Config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/getUserDataFromDM.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/syncDJFeed.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.sample" beforeDir="false" afterPath="$PROJECT_DIR$/.env.sample" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/html/admin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/scss/admin.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/admin.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/dash.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/dash.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/error.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/signup.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/tables.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/tables.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ts/Adapter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ts/Adapter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ts/views/Admin.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ts/views/Index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ts/views/Index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/RestartExchange.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/DatabaseController.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/EmailController.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Auth.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/AdminRoutes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/GeneralRoutes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/admin/sendReminders.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/admin/startExchange.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/general/addParticipant.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/general/confirmEmail.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/general/editUser.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/general/getCurrentUser.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/general/getRecipient.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/general/getRegistrationStatus.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/general/listParticipants.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routes/general/submitPlaylist.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="1mPkRLbFNiRMHPkbyh7WDZqOZQv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/scripts" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.fix-email">
+    <configuration name="fix-email" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="fix-email" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.fix-email" />
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ad547134-08c7-4bf2-9589-8a80946dc9ae" name="Default Changelist" comment="" />
+      <created>1609402605589</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609402605589</updated>
+      <workItem from="1609402608697" duration="2450000" />
+      <workItem from="1609447972177" duration="3339000" />
+      <workItem from="1609722680087" duration="540000" />
+      <workItem from="1609837894399" duration="3592000" />
+      <workItem from="1610015796251" duration="1414000" />
+      <workItem from="1610017257759" duration="2058000" />
+      <workItem from="1610480339930" duration="19000" />
+      <workItem from="1610508295370" duration="1214000" />
+      <workItem from="1610589454027" duration="1908000" />
+      <workItem from="1611088551016" duration="671000" />
+      <workItem from="1611211109304" duration="864000" />
+      <workItem from="1613545788079" duration="605000" />
+      <workItem from="1613546484334" duration="1610000" />
+      <workItem from="1613678918801" duration="908000" />
+      <workItem from="1646971890068" duration="11920000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

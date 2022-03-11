@@ -6,7 +6,6 @@ const config = {
 	context: path.join(__dirname, '/frontend'),
 	entry: {
 		'index': './ts/views/Index.ts',
-		'admin': './ts/views/Admin.ts',
 	},
 	output: {
 		path: path.join(__dirname, '/frontend/js'),
