@@ -42,7 +42,7 @@ const playlist: Listener<"messageCreate"> = {
                     content: "Your playlist is ready!",
                     embeds: [createUserDataEmbed(recipient)],
                 });
-            await syncDJFeed(client, user);
+            await syncDJFeed(client, recipient);
         }
     }
 };
