@@ -22,8 +22,13 @@ const edit: Listener<"interactionCreate"> = {
         if (guilds.length > 1) {
             return interaction.reply("Braxton is an idiot and didn't support signing up in multiple discords yet. Go bother him.");
         }
-        const [guild] = guilds;
-        const user = await db.getUser(guild, interaction.user.id);
+        const [guildId] = guilds;
+
+        if (!(await db.isRegistrationOpen(guildId))) {
+            return interaction.reply("Rules have already been sent out and can no longer be edited");
+        }
+
+        const user = await db.getUser(guildId, interaction.user.id);
 
         const reply = (prompt: string) => getUserDataFromDM(client, interaction.user, () => interaction.reply(prompt));
         try {
