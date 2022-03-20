@@ -21,12 +21,15 @@ const listParticipants = (client: Client) => async (req: Request, res: Response,
         }
         secretDJ[user.guild].push(toUserTransport(user));
     }
-    for (const [guild, users] of Object.entries(secretDJ)) {
-        const name = client.guilds.resolve(guild)?.name ?? guild;
+    const mapWrite = async ([guildId, users]) => {
+        const guild = await client.guilds.fetch(guildId);
+        const name = guild?.name ?? guildId;
         prettySecretDJ[name] = users;
-    }
+    };
+    const futureMapWrites = Object.entries(secretDJ).map(mapWrite);
+    await Promise.all(futureMapWrites);
     res.json(200, prettySecretDJ);
     return next();
-}
+};
 
 export default listParticipants;

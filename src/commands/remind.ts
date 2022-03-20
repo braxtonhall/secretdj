@@ -28,7 +28,7 @@ const remind: Command = {
         const users: User[] = await db.listUsers(guild.id);
         const unfinished = users.filter((user) => !user.done);
         const futureReminders = unfinished.map(async (user) => {
-            const member = guild.members.resolve(user.id);
+            const member = await guild.members.fetch(user.id);
             const recipient = await db.getUser(user.guild, user.recipient);
             return member.send({
                 content: `Don't forget to make a your playlist for ${recipient.name}.\n\nWhen you're ready, just DM me the playlist.`,

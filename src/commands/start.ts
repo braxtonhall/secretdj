@@ -28,10 +28,10 @@ const start: Command = {
 
         const users: User[] = await db.listUsers(guild.id);
         const assignedUsers: Pair[] = createAssignments(users);
-        await Promise.all(assignedUsers.map((pair) => db.updateUser(pair.creator)));
-        const futureAssignmentMessages = assignedUsers.map((pair) => {
+        await Promise.all(assignedUsers.map((pair) => db.updateUser(pair.creator, true)));
+        const futureAssignmentMessages = assignedUsers.map(async (pair) => {
             const {creator, recipient} = pair;
-            const member = guild.members.resolve(creator.id);
+            const member = await guild.members.fetch(creator.id);
             return member.send({
                 content: `It's time to start making your playlist for ${recipient.name}.\nThis _Spotify_ playlist should be at least 8 songs long!\n\nWhen you're ready, just DM me the playlist.`,
                 embeds: [createAssignmentEmbed(recipient)],
@@ -46,7 +46,7 @@ function createAssignments(users: User[]): Pair[] {
     function shuffle<T>(array: T[]): T[] {
         const shuffleArray = [...array];
         for (let i = shuffleArray.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
+            const j = Math.floor(Math.random() * (i + 1));
             [shuffleArray[i], shuffleArray[j]] = [shuffleArray[j], shuffleArray[i]];
         }
         return shuffleArray;
