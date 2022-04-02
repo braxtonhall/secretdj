@@ -10,6 +10,7 @@ DatabaseController.getInstance()
         commandDirectory: `${__dirname}/commands`,
         listenerDirectory: `${__dirname}/listeners`,
         intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES],
+        partials: ["CHANNEL"],
         token: getConfig(ConfigKey.botToken),
     }))
     .then((client) =>

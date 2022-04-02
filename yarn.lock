@@ -279,10 +279,10 @@
     "@typescript-eslint/types" "4.30.0"
     eslint-visitor-keys "^2.0.0"
 
-"@ubccpsc310/bot-base@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@ubccpsc310/bot-base/-/bot-base-1.0.8.tgz#589b94deda93d923601167a5b2a4fb3086f406a2"
-  integrity sha512-hqLXj2H6ztRSlRMZ6/0tsS89KYaEjh/zAEyl4GvjTpmegfrI6mM98fkPY7PJGm19Uw5NubvaNjUcJGuhpVjuUg==
+"@ubccpsc310/bot-base@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@ubccpsc310/bot-base/-/bot-base-1.0.10.tgz#86329e29915ec8649a2e71b2624702c838900051"
+  integrity sha512-1juvGYZtxaQwmB+cdTvm/lkL7S8sjc5ph6Lno2BT8hdYiBTM7oXuax4aVjt0cCAWfHuIxHT9TomihfRpYU4nrA==
   dependencies:
     discord.js "13.1.0"
     nedb "^1.8.0"

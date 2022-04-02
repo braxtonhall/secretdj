@@ -7,7 +7,7 @@
     "node": ">= 16 < 17"
   },
   "dependencies": {
-    "@ubccpsc310/bot-base": "^1.0.8",
+    "@ubccpsc310/bot-base": "^1.0.10",
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
     "mongodb": "^4.4.1",
