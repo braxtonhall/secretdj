@@ -1,4 +1,4 @@
-import {Listener} from "@ubccpsc310/bot-base";
+import {Listener, Log} from "@ubccpsc310/bot-base";
 import {Client, Message} from "discord.js";
 import {DatabaseController} from "../controller/DatabaseController";
 import {createUserDataEmbed} from "../util/Util";
@@ -11,12 +11,15 @@ const playlist: Listener<"messageCreate"> = {
         if (channel.type !== "DM") {
             return;
         }
+        Log.debug("Got a DM from someone");
         if (content.includes("open.spotify.com/playlist") || content.includes("youtube.com/playlist")) {
+            Log.debug("Got a playlist from someone");
             const db = DatabaseController.getInstance();
             const guilds = await db.getGuilds(author.id);
             if (guilds.length === 0) {
                 // await reply("You aren't playing Secret DJ!");
                 // Just ignore it whatever
+                Log.debug("Playlist gotten from someone who is not playing Secret DJ");
                 return;
             } else if (guilds.length > 1) {
                 // TODO support more than one thingy
@@ -38,10 +41,15 @@ const playlist: Listener<"messageCreate"> = {
             await db.updateUser(recipient);
             await db.updateUser(user);
             const guild = await client.guilds.fetch(guildId);
-            const member = await guild.members.fetch(user.recipient);
-            await member.send({
+            const guildRecipient = await guild.members.fetch(user.recipient);
+            const embed = createUserDataEmbed(recipient);
+            await guildRecipient.send({
                 content: "Your playlist is ready!",
-                embeds: [createUserDataEmbed(recipient)],
+                embeds: [embed],
+            });
+            await author.send({
+                content: "Playlist received!",
+                embeds: [embed],
             });
             await syncDJFeed(client, recipient);
         }
