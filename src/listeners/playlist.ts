@@ -38,8 +38,8 @@ const playlist: Listener<"messageCreate"> = {
             const recipient = await db.getUser(guildId, user.recipient);
             recipient.playlist = content.trim();
             user.done = true;
-            await db.updateUser(recipient);
-            await db.updateUser(user);
+            await db.updateUser(recipient, true);
+            await db.updateUser(user, true);
             const guild = await client.guilds.fetch(guildId);
             const guildRecipient = await guild.members.fetch(user.recipient);
             const embed = createUserDataEmbed(recipient);
