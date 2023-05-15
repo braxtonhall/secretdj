@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad547134-08c7-4bf2-9589-8a80946dc9ae" name="Default Changelist" comment="" />
+    <list default="true" id="ad547134-08c7-4bf2-9589-8a80946dc9ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Test.ts" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +63,7 @@
       <recent name="$PROJECT_DIR$/src/scripts" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.fix-email">
+  <component name="RunManager" selected="npm.resend">
     <configuration name="fix-email" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -68,6 +71,16 @@
         <script value="fix-email" />
       </scripts>
       <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="resend" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="resend" />
+      </scripts>
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v16.8.0/bin/node" />
       <envs />
       <method v="2" />
     </configuration>
@@ -81,8 +94,14 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="npm.fix-email" />
+      <item itemvalue="npm.resend" />
+      <item itemvalue="npm.start" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.resend" />
         <item itemvalue="npm.fix-email" />
         <item itemvalue="npm.start" />
       </list>
@@ -110,7 +129,12 @@
       <workItem from="1613545788079" duration="605000" />
       <workItem from="1613546484334" duration="1610000" />
       <workItem from="1613678918801" duration="908000" />
-      <workItem from="1646971890068" duration="15359000" />
+      <workItem from="1646971890068" duration="15707000" />
+      <workItem from="1647562477661" duration="228000" />
+      <workItem from="1647562720066" duration="529000" />
+      <workItem from="1647764340613" duration="1754000" />
+      <workItem from="1647767893610" duration="912000" />
+      <workItem from="1648872469365" duration="2885000" />
     </task>
     <servers />
   </component>
